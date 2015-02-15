@@ -27,7 +27,7 @@ public class HelloMoonFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_hello_moon, parent, false);
 
         mVideoView = (VideoView)v.findViewById(R.id.hellomoon_videView);
-        Uri resourceUri = Uri.parse("android.resource://ru.coold.hellomoon/"+R.raw.apollo_17_stroll);
+        Uri resourceUri = Uri.parse("android.resource://ru.coold.hellomoon/"+R.raw.small);
         try {
             mVideoView.setVideoURI(resourceUri);
         } catch (Exception e) {
@@ -39,6 +39,7 @@ public class HelloMoonFragment extends Fragment {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mVideoView.start();
             }
         });
 
@@ -46,6 +47,7 @@ public class HelloMoonFragment extends Fragment {
         mStopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mVideoView.stopPlayback();
             }
         });
 
