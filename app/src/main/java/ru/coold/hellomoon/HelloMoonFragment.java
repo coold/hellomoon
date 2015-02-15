@@ -23,6 +23,12 @@ public class HelloMoonFragment extends Fragment {
 
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hello_moon, parent, false);
 
@@ -39,7 +45,7 @@ public class HelloMoonFragment extends Fragment {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mVideoView.start();
+                mPlayer.play(getActivity());
             }
         });
 
@@ -47,7 +53,7 @@ public class HelloMoonFragment extends Fragment {
         mStopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mVideoView.stopPlayback();
+                mPlayer.stop();
             }
         });
 
